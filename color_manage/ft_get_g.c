@@ -1,26 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3.h                                             :+:      :+:    :+:   */
+/*   ft_get_g.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 10:46:14 by lodovico          #+#    #+#             */
-/*   Updated: 2021/02/16 17:51:59 by lodovico         ###   ########.fr       */
+/*   Created: 2021/02/16 18:27:39 by lodovico          #+#    #+#             */
+/*   Updated: 2021/02/16 18:29:52 by lodovico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3_H
-# define CUB3_H
-
-# include <stdio.h>
-# include <unistd.h>
-
-int		ft_color(int t, int r, int g, int b);
-int		ft_shade(int trgb, double shade);
-int		ft_get_r(int trgb);
-int		ft_get_g(int trgb);
-int		ft_get_b(int trgb);
-int		ft_invert(int trgb);
-
-#endif
+int		ft_get_g(int trgb)
+{
+	trgb = trgb & 0x0000FF00;
+	return (trgb >> 8);
+}
