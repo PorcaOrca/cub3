@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_img_init.c                                      :+:      :+:    :+:   */
+/*   ft_img_to_win.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/17 08:29:25 by lodovico          #+#    #+#             */
-/*   Updated: 2021/02/17 10:01:10 by lodovico         ###   ########.fr       */
+/*   Created: 2021/02/17 11:39:10 by lodovico          #+#    #+#             */
+/*   Updated: 2021/02/17 11:46:33 by lodovico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3.h"
 
-t_img	*ft_img_init(void *mlx_ptr, t_xy *img_dim)
+void	ft_img_to_win(t_img *img, void *mlx_ptr, void *mlx_win)
 {
-	t_img	*img;
+	t_xy	img_pos;
 	
-	img = (t_img *) malloc(sizeof(t_img));
-	img->ptr = mlx_new_image(mlx_ptr, img_dim->x, img_dim->y);
-	img->addr = mlx_get_data_addr(img->ptr, &img->bxp, &img->sizel, &img->endian);
-	return (img);
+	img_pos.x = 0;
+	img_pos.y = 0;
+	while (img_pos.y < 500)
+	{
+		img_pos.x = 0;
+		while (img_pos.x < 1000)
+		{
+			mlx_put_image_to_window(mlx_ptr, mlx_win, img->ptr, img_pos.x, img_pos.y);
+			img_pos.x += 50;
+		}
+		img_pos.y += 50;
+	}
 }

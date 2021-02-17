@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_img_init.c                                      :+:      :+:    :+:   */
+/*   ft_img_fill.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/17 08:29:25 by lodovico          #+#    #+#             */
-/*   Updated: 2021/02/17 10:01:10 by lodovico         ###   ########.fr       */
+/*   Created: 2021/02/17 09:19:03 by lodovico          #+#    #+#             */
+/*   Updated: 2021/02/17 10:27:17 by lodovico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3.h"
 
-t_img	*ft_img_init(void *mlx_ptr, t_xy *img_dim)
+void	ft_img_fill(t_img *img, t_xy *limit, double shade, int trgb)
 {
-	t_img	*img;
-	
-	img = (t_img *) malloc(sizeof(t_img));
-	img->ptr = mlx_new_image(mlx_ptr, img_dim->x, img_dim->y);
-	img->addr = mlx_get_data_addr(img->ptr, &img->bxp, &img->sizel, &img->endian);
-	return (img);
+	int		x;
+	int		y;
+
+	x = 0;
+	y = 0;
+	while (y < limit->y)
+	{
+		x = 0;
+		trgb = ft_shade(trgb, shade);
+		while (x < limit->x)
+		{
+			ft_img_pixel_put(img, x, y, trgb);
+			x++;
+		}
+		shade += 0.002;
+		y++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 18:30:14 by lodovico          #+#    #+#             */
-/*   Updated: 2021/02/16 18:34:32 by lodovico         ###   ########.fr       */
+/*   Updated: 2021/02/17 09:34:00 by lodovico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ int		ft_shade(int trgb, double shade)
 	int		b;
 	if (shade < 0 || shade > 1)
 		return (-2147483648);
-	r = shade * ft_get_r(trgb);
-	g = shade * ft_get_g(trgb);
-	b = shade * ft_get_b(trgb);
+	r = ft_get_r(trgb);
+	r -= r * shade;
+	g = ft_get_g(trgb);
+	g -= g * shade;
+	b = ft_get_b(trgb);
+	b -= b * shade;
 	return (ft_color(0, r, g, b));
 }

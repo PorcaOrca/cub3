@@ -6,7 +6,7 @@
 #    By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/16 10:47:43 by lodovico          #+#    #+#              #
-#    Updated: 2021/02/17 08:59:15 by lodovico         ###   ########.fr        #
+#    Updated: 2021/02/17 12:26:31 by lodovico         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,19 +17,24 @@ SRCS	=	$(CM)/ft_color.c\
 			$(CM)/ft_get_b.c\
 			$(CM)/ft_invert.c\
 			$(IM)/ft_img_init.c\
-			$(IM)/ft_img_pixel_put.c
+			$(IM)/ft_img_pixel_put.c\
+			$(IM)/ft_img_fill.c\
+			$(IM)/ft_img_to_win.c\
+			$(EM)/key_hook.c
 
 CM		=	color_manage
 
 IM		=	img_manage
 
+EM		=	event_manage
+
 NAME	=	cub3.a
 
-CCFLAG	=	-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra
 
 CC		=	gcc
 
-OBJCS	=	$(SRCS:%.c=%.o)
+OBJCS	=	$(SRCS:.c=.o)
 
 $(NAME):	$(OBJCS)
 			ar -rc $(NAME) $(OBJCS)
