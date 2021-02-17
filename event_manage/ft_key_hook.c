@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_hook.c                                         :+:      :+:    :+:   */
+/*   ft_key_hook.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 11:51:49 by lodovico          #+#    #+#             */
-/*   Updated: 2021/02/17 12:31:11 by lodovico         ###   ########.fr       */
+/*   Updated: 2021/02/17 15:44:53 by lodovico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3.h"
 
-int		key_hook(int keycode, void *temp)
+int		ft_key_hook(int keycode, t_param *param)
 {
 	int		trgb;
 	double	shade;
 	void	*cache;
 	int		control;
-	t_param	*param;
 	
-	param = (t_param *) temp;
 	control = 0;
 	shade = 0;
 	if (keycode == 114)
 	{
 		if (control == 0)
 		{
+
 			cache = param->img1->ptr;
 			control = 1;
 		}
-		else
+		else if (control == 1)
 		{
 			cache = param->img2->ptr;
 			control = 0;
@@ -46,7 +45,7 @@ int		key_hook(int keycode, void *temp)
 			cache = param->img1->ptr;
 			control = 1;
 		}
-		else
+		else if (control == 1)
 		{
 			cache = param->img2->ptr;
 			control = 0;
@@ -55,5 +54,5 @@ int		key_hook(int keycode, void *temp)
 		ft_img_fill(cache, param->xy, shade, trgb);
 		ft_img_to_win(cache,param->mlx_ptr, param->mlx_win);
 	}
-	return (1);
+	return (keycode);
 }

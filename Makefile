@@ -6,7 +6,7 @@
 #    By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/16 10:47:43 by lodovico          #+#    #+#              #
-#    Updated: 2021/02/17 12:26:31 by lodovico         ###   ########.fr        #
+#    Updated: 2021/02/17 15:55:42 by lodovico         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS	=	$(CM)/ft_color.c\
 			$(IM)/ft_img_pixel_put.c\
 			$(IM)/ft_img_fill.c\
 			$(IM)/ft_img_to_win.c\
-			$(EM)/key_hook.c
+			$(EM)/ft_key_hook.c\
+			$(EM)/ft_close.c
 
 CM		=	color_manage
 

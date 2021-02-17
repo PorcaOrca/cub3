@@ -6,7 +6,7 @@
 /*   By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 11:39:10 by lodovico          #+#    #+#             */
-/*   Updated: 2021/02/17 11:46:33 by lodovico         ###   ########.fr       */
+/*   Updated: 2021/02/17 15:46:38 by lodovico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 void	ft_img_to_win(t_img *img, void *mlx_ptr, void *mlx_win)
 {
-	t_xy	img_pos;
+	int x;
+	int y;
 	
-	img_pos.x = 0;
-	img_pos.y = 0;
-	while (img_pos.y < 500)
+	x = 0;
+	y = 0;
+	while (y < 500)
 	{
-		img_pos.x = 0;
-		while (img_pos.x < 1000)
+		x = 0;
+		while (x < 1000)
 		{
-			mlx_put_image_to_window(mlx_ptr, mlx_win, img->ptr, img_pos.x, img_pos.y);
-			img_pos.x += 50;
+			mlx_put_image_to_window(mlx_ptr, mlx_win, img->ptr, x, y);
+			x += 50;
 		}
-		img_pos.y += 50;
+		y += 50;
 	}
 }
