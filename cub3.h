@@ -6,7 +6,7 @@
 /*   By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:46:14 by lodovico          #+#    #+#             */
-/*   Updated: 2021/02/17 15:55:58 by lodovico         ###   ########.fr       */
+/*   Updated: 2021/02/17 16:03:25 by lodovico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 typedef struct	s_xy
 {
-	int		x;
-	int		y;
+	int		*x;
+	int		*y;
 }				t_xy;
 
 typedef struct		s_img
