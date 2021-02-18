@@ -6,7 +6,7 @@
 /*   By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 15:49:03 by lodovico          #+#    #+#             */
-/*   Updated: 2021/02/17 15:56:16 by lodovico         ###   ########.fr       */
+/*   Updated: 2021/02/18 08:42:40 by lodovico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		ft_close(int keycode, t_param *param)
 	{
 		mlx_clear_window (param->mlx_ptr, param->mlx_win);
 		mlx_destroy_window (param->mlx_ptr, param->mlx_win);
+		write(1, "^C", 2);
 	}
 	return (0);
 }

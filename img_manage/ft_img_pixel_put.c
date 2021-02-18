@@ -6,7 +6,7 @@
 /*   By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 08:48:24 by lodovico          #+#    #+#             */
-/*   Updated: 2021/02/17 15:43:03 by lodovico         ###   ########.fr       */
+/*   Updated: 2021/02/18 09:01:59 by lodovico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_img_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 	
-	dst = img->addr + ((y * img->sizel) + (x * (img->bxp / 8)));
-	*(unsigned int *)dst = color;
+	dst = img->addr + (y * img->sizel + x * (img->bxp / 8));
+	*(unsigned int*)dst = color;
 }

@@ -6,7 +6,7 @@
 /*   By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:46:14 by lodovico          #+#    #+#             */
-/*   Updated: 2021/02/17 16:03:25 by lodovico         ###   ########.fr       */
+/*   Updated: 2021/02/18 09:26:18 by lodovico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 typedef struct	s_xy
 {
-	int		*x;
-	int		*y;
+	int		x;
+	int		y;
 }				t_xy;
 
 typedef struct		s_img
@@ -36,8 +36,6 @@ typedef struct		s_img
 typedef struct		s_param
 {
 	t_xy	*xy;
-	t_img	*img1;
-	t_img	*img2;
 	void	*mlx_ptr;
 	void	*mlx_win;
 }					t_param;
@@ -55,5 +53,6 @@ void	ft_img_fill(t_img *img, t_xy *limit, double shade, int trgb);
 int		ft_key_hook(int keycode, t_param *param);
 void	ft_img_to_win(t_img *img, void *mlx_ptr, void *mlx_win);
 int		ft_close(int keycode, t_param *param);
+void	ft_img_push(t_param *param, int trgb);
 
 #endif
