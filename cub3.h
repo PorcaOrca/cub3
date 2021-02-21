@@ -6,7 +6,7 @@
 /*   By: lodovico <lodovico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:46:14 by lodovico          #+#    #+#             */
-/*   Updated: 2021/02/18 09:26:18 by lodovico         ###   ########.fr       */
+/*   Updated: 2021/02/21 08:20:53 by lodovico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <time.h>
 
 typedef struct	s_xy
 {
@@ -38,6 +39,8 @@ typedef struct		s_param
 	t_xy	*xy;
 	void	*mlx_ptr;
 	void	*mlx_win;
+	int		da_loop;
+	double	shade;
 }					t_param;
 
 
@@ -54,5 +57,10 @@ int		ft_key_hook(int keycode, t_param *param);
 void	ft_img_to_win(t_img *img, void *mlx_ptr, void *mlx_win);
 int		ft_close(int keycode, t_param *param);
 void	ft_img_push(t_param *param, int trgb);
+int		ft_timed_disco(int	keycode, t_param *param);
+int		ft_delay(int keycode, t_param param);
+int		ft_release(int keycode, t_param *param);
+int		ft_next_frame(t_param *param);
+
 
 #endif
